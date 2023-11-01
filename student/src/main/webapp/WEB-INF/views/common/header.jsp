@@ -41,7 +41,7 @@
 				<body>
 					<table boder="0" width="100%">
 						<tr>
-							<td style="height:180px">
+							<td style="height:180px; width:320px" >
 								<a href="${contextPath }/member/main.do">
 									<img src="/image/momin.gif" width="166px" height="166px" />
 								</a>
