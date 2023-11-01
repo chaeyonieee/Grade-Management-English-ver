@@ -55,15 +55,22 @@
 						<div class="side1">
 							<br><br>
 							<c:choose>
-								<c:when test="${side_menu=='admin_mode' }">
-									<a href="${contextPath}/admin/listMembers.do" class="side2">Student Information and Grade Registration</a><br><br>
-									<a href="${contextPath}/admin/listGrade.do" class="side2">Student Grade List</a><br><br>
-								</c:when>
-							</c:choose>
-							<a href="javascript:fn_login('${isLogOn }', '${contextPath }/admin/getUserInfo.do','${contextPath }/member/loginForm.do')"
-								class="side2">My Info</a><br><br>
-							<a href="javascript:fn_login1('${isLogOn }', '${contextPath }/admin/getUserGrade.do','${contextPath }/member/loginForm.do')"
-								class="side2">Check Grades</a><br><br>
+    <c:when test="${side_menu=='admin_mode'}">
+   
+        <a href="${contextPath}/admin/listMembers.do" class="side2">Student Information and Grade Registration</a><br><br>
+        <a href="${contextPath}/admin/listGrade.do" class="side2">Student Grade List</a><br><br>
+        <a href="javascript:fn_login('${isLogOn}', '${contextPath}/admin/getUserInfo.do','${contextPath}/member/loginForm.do')"
+            class="side2">My Info</a><br><br>
+    </c:when>
+    <c:otherwise>
+      
+        <a href="javascript:fn_login('${isLogOn}', '${contextPath}/admin/getUserInfo.do','${contextPath}/member/loginForm.do')"
+            class="side2">My Info</a><br><br>
+        <a href="javascript:fn_login1('${isLogOn}', '${contextPath}/admin/getUserGrade.do','${contextPath}/member/loginForm.do')"
+            class="side2">Check Grades</a><br><br>
+    </c:otherwise>
+</c:choose>
+
 						</div>
 					</body>
 

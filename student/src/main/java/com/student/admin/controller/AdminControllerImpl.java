@@ -99,7 +99,7 @@ public class AdminControllerImpl implements AdminController{
 			result = adminService.updateRank(grade);
 			
 			message = "<script>";
-			message += " alert('점수를 추가했습니다.');";
+			message += " alert('Added the score.');";
 			message += " location.href='"+request.getContextPath()+"/admin/listGrade.do';";
 			message += "</script>";
 		}catch(Exception e) {

@@ -14,7 +14,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       <c:when test="${result=='loginFailed' }">
         <script>
           window.onload = function () {
-            alert("ID나 Password가 틀립니다.다시 Login 하세요!");
+            alert("The ID or Password is incorrect. Please log in again!");
           };
         </script>
       </c:when>

@@ -97,7 +97,7 @@ public class MemberControllerImpl implements MemberController{
 			}
 			message = "<script>";
 			message += " alert('The registration has been completed.');";
-			message += " location.href='" + multipartRequest.getContextPath() + "/member/main.do';";
+			message += " location.href='" + multipartRequest.getContextPath() + "/member/loginForm.do';";
 			message += "</script>";
 
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
@@ -239,7 +239,7 @@ public class MemberControllerImpl implements MemberController{
 				oldFile.delete();
 			}
 			message = "<script>";
-			message += " alert('글을 수정했습니다.');";
+			message += " alert('Edited the post.');";
 			message += " location.href='" + multipartRequest.getContextPath() + "/member/main.do';";
 			message += "</script>";
 			
@@ -249,7 +249,7 @@ public class MemberControllerImpl implements MemberController{
 			srcFile.delete();
 
 			message = "<script>";
-			message += " alert('수정 중 오류가 발생했습니다.');";
+			message += " alert('An error occurred while editing.');";
 			message += " location.href='" + multipartRequest.getContextPath() + "/member/main.do';";
 			message += "</script>";
 

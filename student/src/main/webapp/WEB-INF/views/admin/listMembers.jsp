@@ -125,26 +125,27 @@
                             </c:when>
 
                             <c:when test="${!empty membersList}">
-                                <c:forEach var="member" items="${membersList }">
-                                    <tr class="memberlist3" align="center">
-                                        <td class="memberlist3">${member.id }</td>
-                                        <td class="memberlist3">${member.pwd }</td>
-                                        <td class="memberlist3">${member.name }</td>
-                                        <td class="memberlist3">${member.email }</td>
-                                        <if test="${not empty member.imageFileName && member.imageFileName != 'null'}">
+                                <c:forEach var="member" items="${membersList}">
+                                    <c:if test="${member.id != 'admin'}">
+                                        <tr class="memberlist3" align="center">
+                                            <td class="memberlist3">${member.id}</td>
+                                            <td class="memberlist3">${member.pwd}</td>
+                                            <td class="memberlist3">${member.name}</td>
+                                            <td class="memberlist3">${member.email}</td>
+                                            <c:if test="${not empty member.imageFileName && member.imageFileName != 'null'}">
+                                                <td class="memberlist3">
+                                                    <img width="100px" height="100px" src="${contextPath}/download.do?articleNO=${member.articleNO}&imageFileName=${member.imageFileName}">
+                                                </td>
+                                            </c:if>
+                                            <td class="memberlist3">${member.joinDate}</td>
                                             <td class="memberlist3">
-                                                <img width="100px" height="100px"
-                                                    src="${contextPath}/download.do?articleNO=${member.articleNO}&imageFileName=${member.imageFileName}">
+                                                <a class="memberlist8" href="${contextPath}/admin/gradeForm.do?id=${member.id}">Grade Registration</a>
                                             </td>
-                                        </if>
-                                        <td class="memberlist3">${member.joinDate }</td>
-                                        <td class="memberlist3">
-                                            <a class="memberlist8"
-                                                href="${contextPath}/admin/gradeForm.do?id=${member.id }">Grade Registration</a>
-                                        </td>
-                                    </tr>
+                                        </tr>
+                                    </c:if>
                                 </c:forEach>
                             </c:when>
+                            
                         </c:choose>
                     </table>
                 </body>
