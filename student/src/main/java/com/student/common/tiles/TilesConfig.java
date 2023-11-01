@@ -1,0 +1,30 @@
+package com.student.common.tiles;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
+import org.springframework.web.servlet.view.tiles3.TilesView;
+import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
+
+@Configuration
+public class TilesConfig {
+	
+	@Bean
+	public TilesConfigurer tilesconfigurer() {
+		final TilesConfigurer configurer = new TilesConfigurer();
+		System.out.println("TilesConfigurer:yes");
+		//configurer.setDefinitions(new String[] {"WEB-INF/tiles/tiles_member.xml"});
+		configurer.setDefinitions(new String[] {"WEB-INF/tiles/tiles_admin.xml","WEB-INF/tiles/tiles_member.xml"});
+		configurer.setCheckRefresh(true);
+		
+		return configurer;
+	}
+	
+	@Bean
+	public TilesViewResolver tilesViewResolver() {
+		final TilesViewResolver resolver = new TilesViewResolver();
+		resolver.setViewClass(TilesView.class);
+		
+		return resolver;
+	}
+}

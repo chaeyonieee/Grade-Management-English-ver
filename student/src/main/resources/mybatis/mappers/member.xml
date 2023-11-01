@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.student.member.dao.MemberDAO">
+	<resultMap id="memResult" type="memberVO">
+		<result property="id" column="id" />
+        <result property="pwd" column="pwd" />
+        <result property="name" column="name" />
+        <result property="email" column="email" />
+        <result property="imageFileName" column="imageFileName" />
+		<result property="articleNO" column="articleNO" />
+        <result property="joinDate" column="joinDate" />
+	</resultMap>
+	 
+	<!-- Login -->
+	<select id="loginById"  resultType="memberVO"   parameterType="memberVO" >
+		<![CDATA[
+			select * from my_student where id=#{id} and pwd=#{pwd}		
+		]]>
+	</select>
+    
+    <!--회원 추가 -->
+    <insert id="insertMember"  parameterType="memberVO">
+		<![CDATA[
+		 insert into my_student(id,pwd, name, email,imageFileName,articleNO)
+		 values(#{id}, #{pwd}, #{name}, #{email},#{imageFileName},#{articleNO})
+		]]>      
+	</insert>
+	
+	<!-- ArticleNO 확인-->
+	<select id="selectNewArticleNO" resultType="int">
+		<![CDATA[
+		select ifnull(max(articleNO), 0)+1 from my_student
+		]]>   
+	</select>
+	
+	<!--등록 Page 이동시 id가져오기 -->
+	<select id="selectMemberById" resultType="memberVO" parameterType="String">
+		<![CDATA[
+			select id from my_student
+			where
+			id=#{id}
+		]]>	
+	</select>
+	
+	<!-- Edit Member -->
+	 <update id="updateMember"  parameterType="memberVO">
+	   	update my_student
+	   	set pwd=#{pwd}, name=#{name}, email=#{email}
+	   	<if test="imageFileName !='' and imageFileName != null">
+	    	, imageFileName=#{imageFileName} 
+	    </if>
+	   	where articleNO=#{articleNO} and id=#{id}
+   </update>
+   
+   <!-- 개인 Student List -->
+	<select id="selectMemberList" parameterType="memberVO" resultMap="memResult">
+		select * from my_student where id=#{id}
+	</select> 
+</mapper>

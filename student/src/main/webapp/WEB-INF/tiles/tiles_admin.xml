@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+    <definition name="/admin/adminMain" extends="baseLayout">
+       <put-attribute name="title" value="Administrator Main Page" />
+       <put-attribute name="body" value="/WEB-INF/views/admin/adminMain.jsp" />
+    </definition>
+    
+    <definition name="/admin/gradeForm" extends="baseLayout">
+	   <put-attribute name="title" value="Student Grade Registration Page" />
+       <put-attribute name="body" value="/WEB-INF/views/admin/gradeForm.jsp" />
+    </definition>
+    
+    <definition name="/admin/listGrade" extends="baseLayout">
+	   <put-attribute name="title" value="Student Overall Score Information Page" />
+       <put-attribute name="body" value="/WEB-INF/views/admin/listGrade.jsp" />
+    </definition>
+    
+     <definition name="/admin/getUserGrade" extends="baseLayout">
+	   <put-attribute name="title" value="Student Individual Check Grades Page" />
+       <put-attribute name="body" value="/WEB-INF/views/admin/getUserGrade.jsp" />
+    </definition>
+    
+    <definition name="/admin/listMembers" extends="baseLayout">
+	   <put-attribute name="title" value="Student Information Page" />
+       <put-attribute name="body" value="/WEB-INF/views/admin/listMembers.jsp" />
+    </definition>
+   
+    <definition name="/admin/getUserInfo" extends="baseLayout">
+	   <put-attribute name="title" value="Student Personal Information Page" />
+       <put-attribute name="body" value="/WEB-INF/views/admin/getUserInfo.jsp" />
+    </definition>
+    
+     <definition name="/admin/modGrade" extends="baseLayout">
+	   <put-attribute name="title" value="Score Edit Page" />
+       <put-attribute name="body" value="/WEB-INF/views/admin/modGrade.jsp" />
+    </definition>
+</tiles-definitions>
